@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrophyClassLibrary", "TrophyClassLibrary\TrophyClassLibrary.csproj", "{8717F29D-BB73-4C66-8AAC-B73C0E6BFC09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrophyClassLibraryTests", "TrophyClassLibraryTests\TrophyClassLibraryTests.csproj", "{F6CB69DA-B097-4679-B6DD-1EFEBE682CEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{8717F29D-BB73-4C66-8AAC-B73C0E6BFC09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8717F29D-BB73-4C66-8AAC-B73C0E6BFC09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8717F29D-BB73-4C66-8AAC-B73C0E6BFC09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6CB69DA-B097-4679-B6DD-1EFEBE682CEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6CB69DA-B097-4679-B6DD-1EFEBE682CEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6CB69DA-B097-4679-B6DD-1EFEBE682CEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6CB69DA-B097-4679-B6DD-1EFEBE682CEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
