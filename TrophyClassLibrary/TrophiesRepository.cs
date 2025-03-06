@@ -39,7 +39,7 @@ namespace TrophyClassLibrary
                         result = result.OrderBy(t => t.Competition);
                         break;
                     case "title_desc":
-                        result = result.OrderByDescending(t => t.Competition);www
+                        result = result.OrderByDescending(t => t.Competition);
                         break;
                     case "year":
                     case "year_asc":
@@ -62,6 +62,8 @@ namespace TrophyClassLibrary
 
         public Trophy Add(Trophy trophy)
         {
+            if (trophy == null)
+                throw new ArgumentNullException("trophy must not be null");
             trophy.Id = nextId++;
             trophies.Add(trophy);
             return trophy;
