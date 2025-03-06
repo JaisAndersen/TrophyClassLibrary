@@ -22,6 +22,7 @@
                 competition = value;
             }
         }
+
         public int Year
         {
             get => year;

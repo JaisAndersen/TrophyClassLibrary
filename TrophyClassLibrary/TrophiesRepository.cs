@@ -19,15 +19,75 @@ namespace TrophyClassLibrary
             trophies.Add(new Trophy() { Id = nextId++, Competition = "Håndbold VM", Year = 1993 });
             trophies.Add(new Trophy() { Id = nextId++, Competition = "Curling VM", Year = 1994 });
             trophies.Add(new Trophy() { Id = nextId++, Competition = "Skak VM", Year = 1995 });
-        }        
-        public IEnumerable<Trophy> Get(int? yearFilter = null, string? sortByCompetition = null, int? sortByYear = null)
+        }
+        
+         public IEnumerable<Trophy> Get(int? yearFilter = null, string? sortBy = null)
         {
             IEnumerable<Trophy> result = new List<Trophy>(trophies);
             if (yearFilter != null)
             {
-                return result;
+                return trophies.Where(t => t.Year == yearFilter.Value);
+            }
+
+            if (sortBy != null)
+            {
+                sortBy = sortBy.ToLower();
+                switch (sortBy)
+                {
+                    case "Competition":
+                    case "title_asc":
+                        result = result.OrderBy(t => t.Competition);
+                        break;
+                    case "title_desc":
+                        result = result.OrderByDescending(t => t.Competition);www
+                        break;
+                    case "year":
+                    case "year_asc":
+                        result = result.OrderBy(t => t.Year);
+                        break;
+                    case "year_desc":
+                        result = result.OrderByDescending(t => t.Year);
+                        break;
+                    default:
+                        break;
+                }
             }
             return result;
+        }
+
+        public Trophy? GetById(int id)
+        {
+            return trophies.Find(trophy => trophy.Id == id);
+        }
+
+        public Trophy Add(Trophy trophy)
+        {
+            trophy.Id = nextId++;
+            trophies.Add(trophy);
+            return trophy;
+        }
+
+        public Trophy? Remove(int id)
+        {
+            Trophy? trophy = GetById(id);
+            if (trophy == null)
+            {
+                return null;
+            }
+            trophies.Remove(trophy);
+            return trophy;
+        }
+
+        public Trophy? Update(int id, Trophy trophy)
+        {
+            Trophy? trophyToUpdate = GetById(id);
+            if (trophyToUpdate == null)
+            {
+                return null;
+            }
+            trophyToUpdate.Competition = trophy.Competition;
+            trophyToUpdate.Year = trophy.Year;
+            return trophyToUpdate;
         }
     }
 }
