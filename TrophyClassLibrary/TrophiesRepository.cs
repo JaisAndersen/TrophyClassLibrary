@@ -63,7 +63,7 @@ namespace TrophyClassLibrary
         public Trophy Add(Trophy trophy)
         {
             if (trophy == null)
-                throw new ArgumentNullException("trophy must not be null");
+                throw new ArgumentNullException("Trophy must not be null");
             trophy.Id = nextId++;
             trophies.Add(trophy);
             return trophy;
@@ -74,7 +74,7 @@ namespace TrophyClassLibrary
             Trophy? trophy = GetById(id);
             if (trophy == null)
             {
-                return null;
+                throw new ArgumentNullException("Thophy must not be null");
             }
             trophies.Remove(trophy);
             return trophy;

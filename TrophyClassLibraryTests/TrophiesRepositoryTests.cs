@@ -27,6 +27,14 @@ namespace TrophyClassLibrary.Tests
             repo.Add(t);
             Assert.AreEqual(6, repo.Get().Count());
             Assert.ThrowsException<ArgumentNullException>(() => repo.Add(null));
-        }       
+        }
+        [TestMethod()]
+        public void RemoveTest()
+        {
+            Assert.ThrowsException<ArgumentNullException>(() => repo.Remove(100));
+            Assert.AreEqual(1, repo.Remove(1)?.Id);
+            Assert.ThrowsException<ArgumentNullException>(() => repo.Remove(1));
+            Assert.AreEqual(4, repo.Get().Count());
+        }
     }
 }
