@@ -21,7 +21,7 @@ namespace TrophyClassLibrary
             trophies.Add(new Trophy() { Id = nextId++, Competition = "Skak VM", Year = 1995 });
         }
         
-         public IEnumerable<Trophy> Get(int? yearFilter = null, string? sortBy = null)
+        public IEnumerable<Trophy> Get(int? yearFilter = null, string? sortBy = null)
         {
             IEnumerable<Trophy> result = new List<Trophy>(trophies);
             if (yearFilter != null)
@@ -34,22 +34,23 @@ namespace TrophyClassLibrary
                 sortBy = sortBy.ToLower();
                 switch (sortBy)
                 {
-                    case "Competition":
-                    case "title_asc":
+                    
+                    case "competition":
+                    case "competition_asc":
                         result = result.OrderBy(t => t.Competition);
                         break;
-                    case "title_desc":
+                    case "competition_dsc":
                         result = result.OrderByDescending(t => t.Competition);
                         break;
                     case "year":
                     case "year_asc":
                         result = result.OrderBy(t => t.Year);
                         break;
-                    case "year_desc":
+                    case "year_dsc":
                         result = result.OrderByDescending(t => t.Year);
                         break;
                     default:
-                        break;
+                        break;                        
                 }
             }
             return result;
@@ -85,7 +86,7 @@ namespace TrophyClassLibrary
             Trophy? trophyToUpdate = GetById(id);
             if (trophyToUpdate == null)
             {
-                return null;
+                throw new ArgumentNullException("Trophy must not be null");
             }
             trophyToUpdate.Competition = trophy.Competition;
             trophyToUpdate.Year = trophy.Year;
